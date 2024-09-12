@@ -1,0 +1,41 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@schema=https
+@hostname=localhost
+@port=7202
+
+
+GET {{schema}}://{{hostname}}:{{port}}/api/v2/cities
+
+###
+GET {{schema}}://{{hostname}}:{{port}}/api/v2/cities
+Accept:application/xml
+Content-Type:application/json
+
+###
+
+POST {{schema}}://{{hostname}}:{{port}}/api/v2/cities/2/pointsofinterest
+Accept:application/json
+Content-Type:application/json
+{
+    "name": "Ganapati Mandir",
+    "description": "Old Ganesh temple has history of 500years",
+}
+
+###
+@poiid = {{createpoi.response.body.id}}
+
+GET {{schema}}://{{hostname}}:{{port}}/api/v2/cities/1/pointsofinterest/{{poiid}}
+Accept:application/json
+
+###
+POST {{schema}}://{{hostname}}:{{port}}/api/authentication/authenticate
+Content-Type:application/json
+{
+    "username": "KevinDockx",
+    "password": "This is a relatively long sentence that acts as my password",
+}
+
+
+###
+GET {{schema}}://{{hostname}}:{{port}}/api/v2/cities
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZ2l2ZW5fbmFtZSI6InZhaWJoYXYiLCJmYW1pbHlfbmFtZSI6Im1haGFkaWsiLCJjaXR5IjoiTXVtYmFpIiwibmJmIjoxNzIzNjI2NDMxLCJleHAiOjE3MjM2MzAwMzEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcyMDIiLCJhdWQiOiJjaXR5aW5mb2FwaSJ9.MFlQsq96eaB7efmCbWbIljPUW95Th-BS6glm9-AvwzM

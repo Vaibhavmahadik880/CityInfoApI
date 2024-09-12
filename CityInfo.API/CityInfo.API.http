@@ -1,0 +1,11 @@
+﻿@CityInfo.API_HostAddress = https://localhost:7202
+
+POST {{CityInfo.API_HostAddress}}/api/authentication/authenticate
+Content-Type: application/json
+
+{
+  //AuthenticationRequestBody
+}
+
+###
+POST {{CityInfo.API_HostAdress}}/api/v{version:apiVersion}/cities?name=string&searchQuery
